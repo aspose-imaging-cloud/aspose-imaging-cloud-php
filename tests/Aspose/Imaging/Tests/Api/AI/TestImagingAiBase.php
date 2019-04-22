@@ -179,7 +179,7 @@ abstract class TestImagingAiBase extends ApiTester
      */
     protected function waitSearchContextIdle($timeout = 5)
     {
-        $sleepTime = 10;
+        $sleepTime = 20;
         $startTime = new DateTime();
 
         $status = $this->getSearchContextStatus($this->searchContextId);
