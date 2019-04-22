@@ -184,7 +184,7 @@ abstract class TestImagingAiBase extends ApiTester
 
         $status = $this->getSearchContextStatus($this->searchContextId);
 
-		sleep($sleepTime);		
+        sleep($sleepTime);		
         while ($status !== "Idle" && date_diff(new DateTime(), $startTime, false)->format("%i") < $timeout)
         {
             sleep($sleepTime);
