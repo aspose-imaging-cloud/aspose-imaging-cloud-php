@@ -242,7 +242,7 @@ function processArguments($args, &$appKey, &$appSid, &$baseUrl)
     if (count($errors) == 0)
         return;
 
-    echo("Failed to launch examples: " . PHP_EOL . join(PHP_EOL, $errors));
+    echo("Failed to launch Examples: " . PHP_EOL . join(PHP_EOL, $errors));
     exit(1);
 }
 
