@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CropImage.php">
+ * <copyright company="Aspose" file="DeskewImage.php">
  *   Copyright (c) 2018-2019 Aspose Pty Ltd. All rights reserved.
  * </copyright>
  * <summary>
@@ -26,19 +26,20 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
+
 namespace Aspose\Imaging\Examples;
 
 use Aspose\Imaging\ApiException;
 use Exception;
 use \Aspose\Imaging\Examples\ImagingBase;
-use Aspose\Imaging\Model\Requests\CreateCroppedImageRequest;
-use Aspose\Imaging\Model\Requests\CropImageRequest;
+use Aspose\Imaging\Model\Requests\CreateDeskewedImageRequest;
+use Aspose\Imaging\Model\Requests\DeskewImageRequest;
 
 
 /**
- * Crop image example.
+ * Deskew image example.
  */
-class CropImage extends ImagingBase
+class DeskewImage extends ImagingBase
 {
 
     /**
@@ -48,45 +49,39 @@ class CropImage extends ImagingBase
      */
     protected function GetSampleImageFileName()
     {
-        return "CropSampleImage.bmp";
+        return "DeskewSampleImage.bmp";
     }
 
 
     public function __construct($imagingApi)
     {
         parent::__construct($imagingApi);
-        $this->PrintHeader("Crop image example");
+        $this->PrintHeader("Deskew image example");
     }
 
     /**
-     * Crops the image from cloud storage.
+     * Deskews the image from cloud storage.
      * @constructor
      * @throws ApiException
      */
-    public function CropImageFromStorage()
+    public function DeskewImageFromStorage()
     {
-        echo "Crops the image from cloud storage" . PHP_EOL;
+        echo "Deskews the image from cloud storage" . PHP_EOL;
 
         $this->UploadSampleImageToCloud();
-
-        // Please refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-Crop
-        // for possible output formats
-        $format = "jpg"; // Resulting image format.
-        $x = 10;
-        $y = 10;
-        $width = 100;
-        $height = 150;
+        $resizeProportionally = true;
+        $bkColor = "green";
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $request = new CropImageRequest($this->GetSampleImageFileName(), $y, $width, $height, $format, $folder,
+        $request = new DeskewImageRequest($this->GetSampleImageFileName(), $resizeProportionally, $bkColor, $folder,
             $storage);
 
-        echo "Call CropImage with params: x: ${x},y: ${y}, width: ${width}, height: ${height}" . PHP_EOL;
+        echo "Call DeskewImage with params: resizeProportionally: ${resizeProportionally}, bkColor: ${bkColor}" . PHP_EOL;
 
         try {
-            $updatedImage = self::$imagingApi->cropImage($request);
-            $this->SaveUpdatedSampleImageToOutput($updatedImage, false, $format);
+            $updatedImage = self::$imagingApi->deskewImage($request);
+            $this->SaveUpdatedSampleImageToOutput($updatedImage, false, "bmp");
         } catch (Exception $ex) {
             echo $ex->getMessage() . PHP_EOL;
         }
@@ -96,33 +91,27 @@ class CropImage extends ImagingBase
     }
 
     /**
-     * Crop an existing image, and upload updated image to Cloud Storage.
+     * Deskew an existing image, and upload updated image to Cloud Storage.
      * @constructor
      * @throws ApiException
      */
-    public function CropImageAndUploadToStorage()
+    public function DeskewImageAndUploadToStorage()
     {
-        echo "Crops the image and upload to cloud storage" . PHP_EOL;
+        echo "Deskews the image and upload to cloud storage" . PHP_EOL;
 
         $this->UploadSampleImageToCloud();
-
-        // Please refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-Crop
-        // for possible output formats
-        $format = "jpg"; // Resulting image format.
-        $x = 10;
-        $y = 10;
-        $width = 100;
-        $height = 150;
+        $resizeProportionally = true;
+        $bkColor = "green";
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $request = new CropImageRequest($this->GetSampleImageFileName(), $x, $y, $width, $height, $format, $folder,
+        $request = new DeskewImageRequest($this->GetSampleImageFileName(), $resizeProportionally, $bkColor, $folder,
             $storage);
 
-        echo "Call CropImage with params: x: ${x},y: ${y}, width: ${width}, height: ${height}" . PHP_EOL;
+        echo "Call DeskewImage with params: resizeProportionally: ${resizeProportionally}, bkColor: ${bkColor}" . PHP_EOL;
 
         try {
-            $updatedImage = self::$imagingApi->cropImage($request);
+            $updatedImage = self::$imagingApi->deskewImage($request);
             $this->UploadImageToCloud($this->GetModifiedSampleImageFileName(false), $updatedImage);
         } catch (Exception $ex) {
             echo $ex->getMessage() . PHP_EOL;
@@ -132,31 +121,25 @@ class CropImage extends ImagingBase
     }
 
     /**
-     * Crop an image. Image data is passed in a request stream.
+     * Deskew an image. Image data is passed in a request stream.
      * @constructor
      */
-    public function CreateCroppedImageFromRequestBody()
+    public function CreateDeskewedImageFromRequestBody()
     {
-        echo "Crops the image from request body" . PHP_EOL;
-
-        // Please refer to https://docs.aspose.cloud/display/imagingcloud/Supported+File+Formats#SupportedFileFormats-Crop
-        // for possible output formats
-        $format = "jpg"; // Resulting image format.
-        $x = 10;
-        $y = 10;
-        $width = 100;
-        $height = 150;
+        echo "Deskews the image from request body" . PHP_EOL;
+        $resizeProportionally = true;
+        $bkColor = "green";
         $outPath = null; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
         $inputStream = file_get_contents($this->GetExampleImagesFolder() . DIRECTORY_SEPARATOR . $this->GetSampleImageFileName());
-        $request = new CreateCroppedImageRequest($inputStream, $x, $y, $width, $height, $format, $outPath, $storage);
+        $request = new CreateDeskewedImageRequest($inputStream, $resizeProportionally, $bkColor, $outPath, $storage);
 
-        echo "Call CreateCroppedImage with params: x: ${x},y: ${y}, width: ${width}, height: ${height}" . PHP_EOL;
+        echo "Call CreateDeskewedImage with params: resizeProportionally: ${resizeProportionally}, bkColor: ${bkColor}" . PHP_EOL;
 
         try {
-            $updatedImage = self::$imagingApi->createCroppedImage($request);
-            $this->SaveUpdatedSampleImageToOutput($updatedImage, true, $format);
+            $updatedImage = self::$imagingApi->createDeskewedImage($request);
+            $this->SaveUpdatedSampleImageToOutput($updatedImage, true, "bmp");
         } catch (Exception $ex) {
             echo $ex->getMessage() . PHP_EOL;
         }

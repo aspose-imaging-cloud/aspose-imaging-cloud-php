@@ -77,8 +77,8 @@ class RotateFlipImage extends ImagingBase
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $getImageRotateFlipRequest = new RotateFlipImageRequest($this->GetSampleImageFileName(), $format, $method,
-            $folder, $storage);
+        $getImageRotateFlipRequest = new RotateFlipImageRequest($this->GetSampleImageFileName(), $method,
+            $format, $folder, $storage);
 
         echo "Call RotateFlipImage with params: method: ${method}, $format: ${format}" . PHP_EOL;
 
@@ -110,8 +110,8 @@ class RotateFlipImage extends ImagingBase
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $getImageRotateFlipRequest = new RotateFlipImageRequest($this->GetSampleImageFileName(), $format, $method,
-            $folder, $storage);
+        $getImageRotateFlipRequest = new RotateFlipImageRequest($this->GetSampleImageFileName(),  $method,
+            $format,$folder, $storage);
 
         echo "Call RotateFlipImage with params: method: ${method}, $format: ${format}" . PHP_EOL;
 
@@ -142,7 +142,7 @@ class RotateFlipImage extends ImagingBase
         $outPath = null; // Path to updated file (if this is empty, response contains streamed image).
         $storage = null; // We are using default Cloud Storage
 
-        $createRotateFlippedImageRequest = new CreateRotateFlippedImageRequest($inputStream, $format, $method, $outPath,
+        $createRotateFlippedImageRequest = new CreateRotateFlippedImageRequest($inputStream, $method, $format, $outPath,
             $storage);
 
         echo "Call CreateRotateFlippedImage with params: method: ${method}, $format: ${format}" . PHP_EOL;

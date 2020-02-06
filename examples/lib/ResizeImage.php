@@ -67,7 +67,7 @@ echo "Resize an image from cloud storage" . PHP_EOL;
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $resizeImageRequest = new ResizeImageRequest($this->GetSampleImageFileName(), $format, $newWidth, $newHeight, $folder, $storage);echo "Call ResizeImage with params: new width: ${newWidth}, new height: ${newHeight}, $format: ${format}" . PHP_EOL;
+        $resizeImageRequest = new ResizeImageRequest($this->GetSampleImageFileName(), $newWidth, $newHeight, $format, $folder, $storage);echo "Call ResizeImage with params: new width: ${newWidth}, new height: ${newHeight}, $format: ${format}" . PHP_EOL;
 
         try {
             $updatedImage = self::$imagingApi->resizeImage($resizeImageRequest);
@@ -98,7 +98,7 @@ echo "Resize an image and upload to cloud storage" . PHP_EOL;
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $resizeImageRequest = new ResizeImageRequest($this->GetSampleImageFileName(), $format, $newWidth, $newHeight, $folder, $storage);echo "Call ResizeImage with params: new width: ${newWidth}, new height: ${newHeight}, $format: ${format}" . PHP_EOL;
+        $resizeImageRequest = new ResizeImageRequest($this->GetSampleImageFileName(), $newWidth, $newHeight,$format, $folder, $storage);echo "Call ResizeImage with params: new width: ${newWidth}, new height: ${newHeight}, $format: ${format}" . PHP_EOL;
 
         try {
             $updatedImage = self::$imagingApi->resizeImage($resizeImageRequest);
@@ -126,7 +126,7 @@ echo "Resize an image from request body" . PHP_EOL;
         $storage = null; // We are using default Cloud Storage
 
         $inputStream = file_get_contents($this->GetExampleImagesFolder() . DIRECTORY_SEPARATOR . $this->GetSampleImageFileName());
-        $createResizedImageRequest = new CreateResizedImageRequest($inputStream, $format, $newWidth, $newHeight, $outPath, $storage);echo "Call CreateResizedImage with params: new width: ${newWidth}, new height: ${newHeight}, $format: ${format}" . PHP_EOL;
+        $createResizedImageRequest = new CreateResizedImageRequest($inputStream, $newWidth, $newHeight, $format, $outPath, $storage);echo "Call CreateResizedImage with params: new width: ${newWidth}, new height: ${newHeight}, $format: ${format}" . PHP_EOL;
 
         try {
             $updatedImage = self::$imagingApi->createResizedImage($createResizedImageRequest);
