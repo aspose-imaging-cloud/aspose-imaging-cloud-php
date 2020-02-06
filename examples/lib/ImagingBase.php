@@ -176,7 +176,7 @@ abstract class ImagingBase
             $properties .= "Byte order: " . $imagingResponse->getTiffProperties()->getByteOrder();
         }
 
-        file_put_contents($fileName, $properties);
+        file_put_contents($path, $properties);
     }
 
     /**
