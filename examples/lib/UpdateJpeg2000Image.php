@@ -30,10 +30,9 @@
 namespace Aspose\Imaging\Examples;
 
 use Aspose\Imaging\ApiException;
-use Exception;
-use \Aspose\Imaging\Examples\ImagingBase;
 use Aspose\Imaging\Model\Requests\CreateModifiedJpeg2000Request;
 use Aspose\Imaging\Model\Requests\ModifyJpeg2000Request;
+use Exception;
 
 
 /**
@@ -41,16 +40,6 @@ use Aspose\Imaging\Model\Requests\ModifyJpeg2000Request;
  */
 class UpdateJpeg2000Image extends ImagingBase
 {
-    /**
-     * Gets the name of the example image file.
-     *
-     * @return string
-     */
-    protected function GetSampleImageFileName()
-    {
-        return "UpdateJPEG2000SampleImage.jp2";
-    }
-
     function __construct($imagingApi)
     {
         parent::__construct($imagingApi);
@@ -88,6 +77,16 @@ class UpdateJpeg2000Image extends ImagingBase
         }
 
         echo PHP_EOL;
+    }
+
+    /**
+     * Gets the name of the example image file.
+     *
+     * @return string
+     */
+    protected function GetSampleImageFileName()
+    {
+        return "UpdateJPEG2000SampleImage.jp2";
     }
 
     /**

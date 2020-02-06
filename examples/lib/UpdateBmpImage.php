@@ -30,9 +30,9 @@
 namespace Aspose\Imaging\Examples;
 
 use Aspose\Imaging\ApiException;
-use Exception;
 use Aspose\Imaging\Model\Requests\CreateModifiedBmpRequest;
 use Aspose\Imaging\Model\Requests\ModifyBmpRequest;
+use Exception;
 
 
 /**
@@ -40,17 +40,6 @@ use Aspose\Imaging\Model\Requests\ModifyBmpRequest;
  */
 class UpdateBmpImage extends ImagingBase
 {
-    /**
-     * Gets the name of the example image file.
-     *
-     * @return string
-     */
-    protected function GetSampleImageFileName()
-    {
-        return "UpdateBmpSampleImage.bmp";
-    }
-
-
     function __construct($imagingApi)
     {
         parent::__construct($imagingApi);
@@ -89,6 +78,16 @@ class UpdateBmpImage extends ImagingBase
         }
 
         echo PHP_EOL;
+    }
+
+    /**
+     * Gets the name of the example image file.
+     *
+     * @return string
+     */
+    protected function GetSampleImageFileName()
+    {
+        return "UpdateBmpSampleImage.bmp";
     }
 
     /**

@@ -53,6 +53,7 @@ require_once __DIR__ . '/AI/FindSimilarImages.php';
 
 use Aspose\Imaging\Configuration;
 use Aspose\Imaging\ImagingApi;
+use Exception;
 
 error_reporting(1);
 
@@ -216,7 +217,7 @@ try {
     $findSimilarImages->FindImagesSimilar();
     $findSimilarImages->FindImagesByTag();
     $findSimilarImages->DeleteSearchContext();
-} catch (\Exception $exception) {
+} catch (Exception $exception) {
     echo "Something goes wrong: " . $exception . PHP_EOL;
 }
 
