@@ -41,16 +41,6 @@ use Exception;
 class RotateFlipImage extends ImagingBase
 {
 
-    /**
-     * Gets the name of the example image file.
-     *
-     * @return string
-     */
-    protected function GetSampleImageFileName()
-    {
-        return "RotateFlipSampleImage.psd";
-    }
-
     function __construct($imagingApi)
     {
         parent::__construct($imagingApi);
@@ -77,7 +67,7 @@ class RotateFlipImage extends ImagingBase
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $getImageRotateFlipRequest = new RotateFlipImageRequest($this->GetSampleImageFileName(), $method,
+        $getImageRotateFlipRequest = new RotateFlipImageRequest($this->GetSampleImageFileName(),  $method,
             $format, $folder, $storage);
 
         echo "Call RotateFlipImage with params: method: ${method}, $format: ${format}" . PHP_EOL;
@@ -90,6 +80,16 @@ class RotateFlipImage extends ImagingBase
         }
 
         echo PHP_EOL;
+    }
+
+    /**
+     * Gets the name of the example image file.
+     *
+     * @return string
+     */
+    protected function GetSampleImageFileName()
+    {
+        return "RotateFlipSampleImage.psd";
     }
 
     /**
@@ -110,8 +110,8 @@ class RotateFlipImage extends ImagingBase
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $getImageRotateFlipRequest = new RotateFlipImageRequest($this->GetSampleImageFileName(),  $method,
-            $format,$folder, $storage);
+        $getImageRotateFlipRequest = new RotateFlipImageRequest($this->GetSampleImageFileName(), $method,
+            $format, $folder, $storage);
 
         echo "Call RotateFlipImage with params: method: ${method}, $format: ${format}" . PHP_EOL;
 

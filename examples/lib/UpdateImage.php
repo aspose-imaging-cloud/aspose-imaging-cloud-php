@@ -30,10 +30,9 @@
 namespace Aspose\Imaging\Examples;
 
 use Aspose\Imaging\ApiException;
-use Exception;
-use \Aspose\Imaging\Examples\ImagingBase;
 use Aspose\Imaging\Model\Requests\CreateUpdatedImageRequest;
 use Aspose\Imaging\Model\Requests\UpdateImageRequest;
+use Exception;
 
 
 /**
@@ -41,16 +40,6 @@ use Aspose\Imaging\Model\Requests\UpdateImageRequest;
  */
 class UpdateImage extends ImagingBase
 {
-
-    /**
-     * Gets the name of the example image file.
-     *
-     * @return string
-     */
-    protected function GetSampleImageFileName()
-    {
-        return "UpdateSampleImage.gif";
-    }
 
     function __construct($imagingApi)
     {
@@ -82,7 +71,7 @@ class UpdateImage extends ImagingBase
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $getImageUpdateRequest = new UpdateImageRequest($this->GetSampleImageFileName(), $newWidth, $newHeight,
+        $getImageUpdateRequest = new UpdateImageRequest($this->GetSampleImageFileName(),  $newWidth, $newHeight,
             $x, $y, $rectWidth, $rectHeight, $rotateFlipMethod, $format, $folder, $storage);
 
         echo "Call UpdateImage with params: new width: ${newWidth}, new height: ${newHeight}, x: ${x}, y: ${y}, rect width: ${rectWidth}, rectHeight: ${rectHeight}, rotate/flip method: ${rotateFlipMethod}, $format: ${format}" . PHP_EOL;
@@ -95,6 +84,16 @@ class UpdateImage extends ImagingBase
         }
 
         echo PHP_EOL;
+    }
+
+    /**
+     * Gets the name of the example image file.
+     *
+     * @return string
+     */
+    protected function GetSampleImageFileName()
+    {
+        return "UpdateSampleImage.gif";
     }
 
     /**

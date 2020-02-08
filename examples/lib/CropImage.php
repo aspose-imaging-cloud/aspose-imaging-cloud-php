@@ -26,13 +26,13 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
+
 namespace Aspose\Imaging\Examples;
 
 use Aspose\Imaging\ApiException;
-use Exception;
-use \Aspose\Imaging\Examples\ImagingBase;
 use Aspose\Imaging\Model\Requests\CreateCroppedImageRequest;
 use Aspose\Imaging\Model\Requests\CropImageRequest;
+use Exception;
 
 
 /**
@@ -41,21 +41,10 @@ use Aspose\Imaging\Model\Requests\CropImageRequest;
 class CropImage extends ImagingBase
 {
 
-    /**
-     * Gets the name of the example image file.
-     *
-     * @return string
-     */
-    protected function GetSampleImageFileName()
-    {
-        return "CropSampleImage.bmp";
-    }
-
-
     public function __construct($imagingApi)
     {
         parent::__construct($imagingApi);
-        $this->PrintHeader("Crop image example");
+        $this->PrintHeader("Rotate/flip image example");
     }
 
     /**
@@ -79,7 +68,7 @@ class CropImage extends ImagingBase
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $request = new CropImageRequest($this->GetSampleImageFileName(), $y, $width, $height, $format, $folder,
+        $request = new CropImageRequest($this->GetSampleImageFileName(), $x, $y, $width, $height, $format, $folder,
             $storage);
 
         echo "Call CropImage with params: x: ${x},y: ${y}, width: ${width}, height: ${height}" . PHP_EOL;
@@ -93,6 +82,16 @@ class CropImage extends ImagingBase
 
 
         echo PHP_EOL;
+    }
+
+    /**
+     * Gets the name of the example image file.
+     *
+     * @return string
+     */
+    protected function GetSampleImageFileName()
+    {
+        return "RotateFlipSampleImage.psd";
     }
 
     /**
@@ -116,7 +115,7 @@ class CropImage extends ImagingBase
         $folder = $this->CloudPath; // Input file is saved at the Examples folder in the storage
         $storage = null; // We are using default Cloud Storage
 
-        $request = new CropImageRequest($this->GetSampleImageFileName(), $x, $y, $width, $height, $format, $folder,
+        $request = new CropImageRequest($this->GetSampleImageFileName(),$x, $y, $width, $height, $format,  $folder,
             $storage);
 
         echo "Call CropImage with params: x: ${x},y: ${y}, width: ${width}, height: ${height}" . PHP_EOL;
