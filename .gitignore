@@ -2,9 +2,14 @@ vendor/
 test-reports/
 .vs/
 .vscode/
+.idea/
 composer.lock
 .swagger-codegen-ignore
 .php_cs.cache
 php_errors.log
 .git
-.idea/
+
+Examples/.idea
+Examples/composer.lock
+Examples/vendor
+Examples/Output
