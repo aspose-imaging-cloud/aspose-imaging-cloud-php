@@ -66,6 +66,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**createResizedImageAsync**](ImagingApi.md#createresizedimageasync) | **POST** /imaging/resize | Resize an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**createRotateFlippedImage**](ImagingApi.md#createrotateflippedimage) | **POST** /imaging/rotateflip | Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**createRotateFlippedImageAsync**](ImagingApi.md#createrotateflippedimageasync) | **POST** /imaging/rotateflip | Rotate and/or flip an image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**createSavedImageAs**](ImagingApi.md#createsavedimageas) | **POST** /imaging/saveAs | Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
+*ImagingApi* | [**createSavedImageAsAsync**](ImagingApi.md#createsavedimageasasync) | **POST** /imaging/saveAs | Export existing image to another format. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**createUpdatedImage**](ImagingApi.md#createupdatedimage) | **POST** /imaging/updateImage | Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**createUpdatedImageAsync**](ImagingApi.md#createupdatedimageasync) | **POST** /imaging/updateImage | Perform scaling, cropping and flipping of an image in a single request. Image data is passed as zero-indexed multipart/form-data content or as raw body stream.
 *ImagingApi* | [**createVisualObjectBounds**](ImagingApi.md#createvisualobjectbounds) | **POST** /imaging/ai/objectdetection/visualbounds | Detects objects bounds and draw them on the original image. Image data is passed as zero-indexed multipart/form-data content or as raw body stream
@@ -158,6 +160,8 @@ Class | Method | HTTP request | Description
 *ImagingApi* | [**resizeImageAsync**](ImagingApi.md#resizeimageasync) | **GET** /imaging/{name}/resize | Resize an existing image.
 *ImagingApi* | [**rotateFlipImage**](ImagingApi.md#rotateflipimage) | **GET** /imaging/{name}/rotateflip | Rotate and/or flip an existing image.
 *ImagingApi* | [**rotateFlipImageAsync**](ImagingApi.md#rotateflipimageasync) | **GET** /imaging/{name}/rotateflip | Rotate and/or flip an existing image.
+*ImagingApi* | [**saveImageAs**](ImagingApi.md#saveimageas) | **GET** /imaging/{name}/saveAs | Export existing image to another format.
+*ImagingApi* | [**saveImageAsAsync**](ImagingApi.md#saveimageasasync) | **GET** /imaging/{name}/saveAs | Export existing image to another format.
 *ImagingApi* | [**storageExists**](ImagingApi.md#storageexists) | **GET** /imaging/storage/{storageName}/exist | Check if storage exists
 *ImagingApi* | [**storageExistsAsync**](ImagingApi.md#storageexistsasync) | **GET** /imaging/storage/{storageName}/exist | Check if storage exists
 *ImagingApi* | [**updateImage**](ImagingApi.md#updateimage) | **GET** /imaging/{name}/updateImage | Perform scaling, cropping and flipping of an existing image in a single request.
