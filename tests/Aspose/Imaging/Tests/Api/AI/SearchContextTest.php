@@ -277,7 +277,7 @@ class SearchContextTest extends TestImagingAiBase
 
             $this->waitSearchContextIdle();
 
-            $image_url = urlencode("https://cdn.f1ne.ws/userfiles/hamilton/140909.jpg");
+            $image_url = urlencode("https://c.f1news.ru/userfiles/hamilton/140909.jpg");
             $response = self::$imagingApi->getImageFeaturesAsync(new Requests\GetImageFeaturesRequest($this->searchContextId, $image_url, null, self::$testStorage))->wait();
 
             $this->assertGreaterThan(0, count($response->getFeatures()));
